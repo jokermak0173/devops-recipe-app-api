@@ -1,13 +1,13 @@
 name: Destroy
 
-on: 
+on:
   workflow_dispatch:
     inputs:
       environment:
         type: choice
         description: Which environment to remove AWS resources for?
         options:
-          - staging 
+          - staging
           - prod
 
 jobs:
