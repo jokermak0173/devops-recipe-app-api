@@ -1,13 +1,13 @@
 name: Destroy
 
-on: 
+on:
   workflow_dispatch:
     inputs:
       environment:
         type: choice
         description: Which environment to remove AWS resources for?
         options:
-          - staging 
+          - staging
           - prod
 
 jobs:
@@ -25,4 +25,4 @@ jobs:
           export TF_WORKSPACE=${{ github.event.inputs.environment }}
           cd infra/
           docker compose run --rm terraform -chdir=deploy/ init
-          docker compose run --rm terraform -chdir=deploy destroy -auto-appove
+          docker compose run --rm terraform -chdir=deploy destroy -auto-approve
